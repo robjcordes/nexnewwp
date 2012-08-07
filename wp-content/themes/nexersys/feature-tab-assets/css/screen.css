@@ -1,0 +1,290 @@
+.text-section {
+	background-color: #FFFFFF;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	min-height: 480px;
+	margin: 20px 0 6px;
+	width: 985px;
+	padding-bottom: 20px;
+	height: 700px;
+}
+
+#tabs {
+	padding: 0 0 0 28px;
+}
+
+.ui-tabs-hide {
+	display: none;
+}
+
+.nav-tabs {
+	margin: 0;
+	padding: 0 0 0 53px;
+	list-style: none;
+	overflow: hidden;
+	font-family:arial;
+	font-size:14px;
+	text-shadow: 0 1px 0 #000;
+}
+
+.nav-tabs li {
+	float: left;
+	margin: 0 0 0 3px;
+	width: 135px;
+}
+
+.nav-tabs a {
+	color: #fff;
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	background: url('/product-features/assets/images/nexersys/tab.png') no-repeat;
+	padding: 0 40px 0 23px;
+	font-size:22px;
+}
+
+.nav-tabs a:hover {
+	text-decoration: none;
+}
+
+/*.nav-tabs span {
+	float: left;
+	width: 19px;
+	height: 40px;
+	background: url('/product-features/assets/images/nexersys/bg-nav-tab-r.png') no-repeat;
+}*/ 
+
+.nav-tabs .ui-state-active a {
+	background: url('/product-features/assets/images/nexersys/tab-active.png') no-repeat;
+	color: #333;
+	/*padding: 0 13px 0 41px;*/
+	text-shadow: 0 1px 0 #dedede;
+}
+
+/*.ui-corner-all {
+    border-radius: 0  !important;
+}
+.ui-widget-content {
+    background: none !important;
+    border: none !important;
+}*/
+
+/*.nav-tabs .ui-state-active span {
+	width: 26px;
+	background: url('/product-features/assets/images/nexersys/bg-nav-tab-r-active.png') no-repeat;
+}*/
+
+.tab {
+	width: 822px;
+	background: #fff url('/product-features/assets/images/nexersys/bg-tab.gif') no-repeat;
+	padding: 39px 46px 100px 62px;
+	position: relative;
+}
+
+.tab .the-nexersys {
+	background: url('/product-features/assets/images/nexersys/text-nexersys-01.gif') no-repeat;
+	width: 197px;
+	height: 20px;
+	display: block;
+	text-indent: -9999px;
+	margin: 0 0 10px;
+}
+div.tab.features, div.tab.compare {
+	width: 930px;
+	height: 426px;
+	background: url('/product-features/assets/images/nexersys/bg-grid.png') no-repeat;
+	margin: -5px 0 0;
+	padding: 50px 0 0 20px;
+	position: relative;
+}
+
+div.tab.compare {
+	height: 551px;
+	background: url('http://www.nexersys.com/wp-content/uploads/2012/01/compare_chart.jpg') no-repeat;
+	margin-top: 0;
+}
+
+div.tab.features ul.labels {
+	margin-top: -30px;
+	font-family:arial;
+	font-size:14px;
+}
+
+div.tab.features ul.labels li {
+	position: relative;
+	display: block;
+	width: 143px;
+	height: 43px;
+	margin-bottom: 5px;
+	background: url('/product-features/assets/images/nexersys/btn-off.png') no-repeat;
+	z-index: 10;
+}
+
+div.tab.features ul.labels li:hover {
+	cursor: pointer;
+	background: url('/product-features/assets/images/nexersys/btn-on.png') no-repeat;
+	z-index: 10;
+}
+
+div.tab.features ul.labels li a {
+	position: absolute;
+	top: -3px;
+	width: 143px;
+	height: 33px;
+	padding-top: 10px;
+	color: #377699;
+	text-align: center;
+	line-height: 14px;
+	font-size:14px;
+	/*border: solid 1px white;*/
+}
+
+div.tab.features ul.labels li a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* @group Callouts for Features/Benefits/Comparison */
+
+img.callout-01, img.callout-02, 
+img.callout-03, img.callout-04, 
+img.callout-05, img.callout-06, 
+img.callout-07, img.callout-08 {
+	position: absolute;
+	left: 155px;
+	z-index: 1;
+}
+
+img.callout-09, img.callout-10,
+img.callout-11, img.callout-12,
+img.callout-13 {
+	position: absolute;
+	left: 550px;
+	z-index: 1;
+}
+
+img.callout-01 {
+	top: 70px;
+}
+
+img.callout-02 {
+	top: 85px;
+	left: 140px;
+}
+
+img.callout-03 {
+	top: 130px;
+}
+
+img.callout-04 {
+	top: 90px;
+}
+
+img.callout-05 {
+	top: 110px;
+	left: 110px;
+}
+
+img.callout-06 {
+	top: 55px;
+	left: 110px;
+}
+
+img.callout-07 {
+	top: 195px;
+	left: 105px;
+}
+
+img.callout-08 {
+	top: 370px;
+}
+
+img.callout-09 {
+	top: 75px;
+}
+
+img.callout-10 {
+	top: 115px;
+	left: 580px;
+}
+
+img.callout-11 {
+	top: 160px;
+	left: 535px;
+}
+
+img.callout-12 {
+	top: 110px;
+	left: 565px;
+}
+
+img.callout-13 {
+	top: 260px;
+	left: 578px;
+}
+
+
+
+div#rollover-copy {
+	position: relative;
+	width: 930px;
+	height: 145px;
+	margin: 60px 0 0 -20px;
+	padding: 10px;
+	color: #000000;
+	font-weight: 100;
+	font-size: 14px;
+	font-family:arial;
+	background-color: #edefef;
+}
+
+div#rollover-copy div {
+	position: absolute;
+
+}
+
+div#rollover-copy h3 {
+	font-size: 20px;
+	color: #377699;
+	font-family:arial;
+	margin-bottom:10px;
+}
+
+/* @end */
+
+.tab h3 {
+	font-size: 14px;
+	line-height: 16px;
+	margin: 0;
+	font-weight: normal;
+	color: #469ac9;
+	text-transform: uppercase;
+}
+
+.tab .holder {
+	width: 100%;
+	margin: 0 0 4px;
+}
+
+.tab .holder:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.tab .holder img {
+	float: right;
+	margin: -43px 0 0 30px;
+}
+
+.tab p {
+	margin: 0;
+	padding: 0 0 10px;
+}
+
+.tab .form-01 {
+	top: auto;
+	bottom: 20px;
+}
+
+/* @end */
