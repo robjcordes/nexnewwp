@@ -1,19 +1,10 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
     $(".nexersys_landing_form").load('/wp-content/themes/nexersys/form/nexersysform.html', function(){
-            nexReqForm.checkUrlType();
-    nexReqForm.formatForm();
+        nexReqForm.checkUrlType();
+        nexReqForm.formatForm();
+        nexReqForm.submitButtonBehavior();
         nexReqForm.attachValidation();
-    });
-    //$("#nex_request_form").validationEngine('attach'); // set up form validation.
-    $('#nex_request_form .submit').hover(function(){
-        $(this).toggleClass('down');
-    });
-    $('#nex_request_form .submit').click(function(event){
-        var country = $('#nex_request form #nex_request_country').val();
-        nexReqForm.updateAction(country, nexReqForm.urlType);
-        //nexReqForm.showTestAlerts();
-        //return false;
     });
 
     nexReqForm = {
@@ -69,6 +60,17 @@ $(document).ready(function() {
             $('#nex_request #questions').attr('name', 'LEADCF10');
         }
 
+    },
+    submitButtonBehavior : function(){
+          $('#nex_request_form .submit').hover(function(){
+        $(this).toggleClass('down');
+    });
+        $('#nex_request_form .submit').click(function(event){
+            var country = $('#nex_request form #nex_request_country').val();
+            nexReqForm.updateAction(country, nexReqForm.urlType);
+            //nexReqForm.showTestAlerts();
+            //return false;
+        });  
     },
     updateAction : function(country, urlType){
                        this.modelType = $('#nex_request #model_type').val();
