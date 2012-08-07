@@ -1,23 +1,14 @@
- <!-- ADDED for UBERFORM -->
-<script type="text/javascript" src="http://www.nexersys.com.php53-22.ord1-1.websitetestlink.com/form/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="http://www.nexersys.com.php53-22.ord1-1.websitetestlink.com/form/js/nexersysform.js"></script>
-<script type="text/javascript" src="http://www.nexersys.com.php53-22.ord1-1.websitetestlink.com/form/js/jquery.validationEngine.js"></script>
-<script type="text/javascript" src="http://www.nexersys.com.php53-22.ord1-1.websitetestlink.com/form/js/jquery.validationEngine-en.js"></script>
-<link rel="stylesheet" type="text/css" href="http://www.nexersys.com.php53-22.ord1-1.websitetestlink.com/form/css/nex_request.css"/>
-<link rel="stylesheet" type="text/css" href="http://www.nexersys.com.php53-22.ord1-1.websitetestlink.com/form/css/validationEngine.jquery.css"/>
-<!-- END ADDED for UBERFORM -->
 <div id="nex_request">
     <div class="left">
         <div class="left-top">
-            <div><img src="<?php echo get_option('siteurl'); ?>/images/nex-bro-home.png"/></div>
+            <div><img src="/wp-content/themes/nexersys/form/img/nex-bro-home.png"/></div>
         </div>
         <div class="left-bottom">
-            <div><img src="<?php bloginfo('template_directory'); ?>/form/img/nex-form-bot-left.png"/></div>
+            <div><img src="/wp-content/themes/nexersys/form/img/nex-form-bot-left.png"/></div>
         </div>
     </div>
     <div class="right">
-        <form method="POST" action="https://crm.zoho.com/crm/WebToLeadForm" id="nex_request_form" name="nex_request">
-            <table id="nexersys-form-fields">
+<form method="POST" action="https://crm.zoho.com/crm/WebToLeadForm" id="nex_request_form" name="nex_request"><input type='hidden' maxlength='40' name='LEADCF13' value='Nexersys.com Commercial Form'><input type='hidden' maxlength='100' name='LEADCF14' value='http://nexersys.com/fitness-equipment/commercial-gym-equipment'><input type='hidden' maxlength='40' name='LEADCF1' value='Nexersys.com Commercial Form'><input type='hidden' maxlength='100' name='LEADCF5' value='http://nexersys.com/fitness-equipment/commercial-gym-equipment'><table id="nexersys-form-fields">
                 <tr>
                     <td class="label"><label for="FirstName">First Name*</label></td>
                     <td><input type="text" name='First Name' id='FirstName' value='' class="nexersys validate[required]"></td>
@@ -38,9 +29,13 @@
                     <td class="label model_type"><label for="model_type">Interested In*</label></td>
                     <td><select id="model_type" name='LEADCF3'>
                             <option value='home'>Home</option>
-                            <option value='commercial'>Commercial</option>
                             <option value='pro'>Pro</option>
+                            <option value='commercial'>Commercial</option>
                     </select></td>
+                </tr>
+<tr class="zip_code">
+                    <td class="label"><label for="zip_code">Zip Code*</label></td>
+                    <td><input id="zip_code" type='text' maxlength='30' name='Zip Code' class="nexersys validate[required]"/></td>
                 </tr>
                 <tr>
                     <td class="label"><label for="nex_request_country">I'm located in the*</label></td>
@@ -586,7 +581,7 @@
               59
             </option>
           </select>
-                    <select class="ampm hidden" "name='LEADCF92ampm'>
+                    <select class="ampm hidden" name="LEADCF92ampm">
             <option value='AM'>
               AM
             </option>
@@ -597,8 +592,6 @@
           </select>
                     
                 </tr>
-            </table>
-            <input type="submit" class="submit" value="">
-        </form>
+            </table><input type="submit" class="submit" value=""></form>
     </div>
 </div>

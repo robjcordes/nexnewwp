@@ -7,9 +7,15 @@
 		
 		<?php if ( is_singular() ) wp_enqueue_script( 'theme-comment-reply', get_bloginfo('template_url')."/js/comment-reply.js" ); ?>
 		
-		<?php wp_enqueue_script('jquery'); wp_head(); ?>
-		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js" ></script>
-		
+		<?php wp_enqueue_script('jquery'); wp_head(); ?>		
+
+		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/nexersysform.js"></script>
+		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery.validationEngine.js"></script>
+		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery.validationEngine-en.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/css/nex_request.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/css/validationEngine.jquery.css" />
+
 
 
 	</head>

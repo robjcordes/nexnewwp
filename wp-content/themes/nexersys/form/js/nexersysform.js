@@ -1,6 +1,11 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
-    $("#nex_request_form").validationEngine('attach'); // set up form validation.
+    $(".nexersys_landing_form").load('/wp-content/themes/nexersys/form/nexersysform.html', function(){
+            nexReqForm.checkUrlType();
+    nexReqForm.formatForm();
+        nexReqForm.attachValidation();
+    });
+    //$("#nex_request_form").validationEngine('attach'); // set up form validation.
     $('#nex_request_form .submit').hover(function(){
         $(this).toggleClass('down');
     });
@@ -12,72 +17,7 @@ $(document).ready(function() {
     });
 
     nexReqForm = {
-        /*
-         * Instructions:  Enter complete urls in the arrays below for home, commercial and pro models.
-         * Any other url will be treated as 'general'.
-         *
-         */
-        homeUrls : [
-    'http://form.localhost:8888/home.php',
-	'http://nexersys.com/afmaugust',
-	'http://nexersys.com/afmaugust/',
-    'http://nexersysdemo.principlepointdev.com/form/home.php',
-    'http://nexersysdemo.principlepointdev.com/NexersysBrochureForm/home.php'
-    ],
-    commercialUrls : [
-        'http://form.localhost:8888/comm.php',
-        'http://nexersysdemo.principlepointdev.com/form/comm.php',
-        'http://nexersysdemo.principlepointdev.com/NexersysBrochureForm/comm.php',
-		'http://nexersys.com/fitness-equipment/commercial-gym-equipment', 'http://nexersys.com/fitness-equipment/commercial-gym-equipment/',
-		'http://nexersys.com/grf',
-		'http://nexersys.com/grf/',
-		'http://nexersys.com/club-solutions-june-21/',
-		'http://nexersys.com/cs0712newsletterbanner',
-		'http://nexersys.com/cs0712newsletterbanner/',
-		'http://nexersys.com/ggfa0712video/',
-		'http://nexersys.com/cs0712davidpath/',
-		'http://nexersys.com/cs0712davidpath',
-		'http://nexersys.com/cs0712mistypath/',
-		'http://nexersys.com/cs0712mistypath',
-		'http://nexersys.com/cs0712nexersyspath/',
-		'http://nexersys.com/cs0712nexersyspath',
-		'http://nexersys.com/clubsolutions-july-video-lp/',
-		'http://nexersys.com/clubsolutions-july-video-lp',
-		'http://nexersys.com/cs0712mktgalert',
-		'http://nexersys.com/cs0712mktgalert/',
-		'http://nexersys.com/door/',
-		'http://nexersys.com/door',
-		'http://nexersys.com/path/',
-		'http://nexersys.com/path',
-		'http://nexersys.com/cs0712newslettervideo',
-		'http://nexersys.com/cs0712newslettervideo/',
-		'http://nexersys.com/clubsolutions-july2012-newsletter2-video/',
-		'http://nexersys.com/clubsolutions-july2012-newsletter2-video',
-		'http://nexersys.com/clubsolutions-july2012-newsletter2/',
-		'http://nexersys.com/clubsolutions-july2012-newsletter2',
-		'http://nexersys.com/clubsolutions-july2012-emailblast-video/',
-		'http://nexersys.com/clubsolutions-july2012-emailblast-video',
-		'http://nexersys.com/clubsolutions-july2012-emailblast',
-		'http://nexersys.com/clubsolutions-july2012-emailblast/',
-		'http://nexersys.com/club-solutions-august-2012-video-lp/',
-		'http://nexersys.com/club-solutions-august-2012-video-lp',
-		'http://nexersys.com/clubsolutions-august2012-banner1/',
-		'http://nexersys.com/clubsolutions-august2012-banner1',
-		'http://nexersys.com/clubsolutions-august2012-banner2/',
-		'http://nexersys.com/clubsolutions-august2012-banner2',
-		'http://nexersys.com/clubsolutions-august2012-banner3/',
-		'http://nexersys.com/clubsolutions-august2012-banner3',
-		'http://nexersys.com/clubsolutions-august2012-marketing-alert/',
-		'http://nexersys.com/clubsolutions-august2012-marketing-alert',
-		'http://nexersys.com/product/commercial', 'http://nexersys.com/product/commercial/',
-		
-		'http://nexersys.com/commercial-test', 'http://nexersys.com/commercial-test/'
-		
-		],
-    proUrls : [
-        'http://form.localhost:8888/pro.php',
-        'http://nexersysdemo.principlepointdev.com/form/pro.php',
-        'http://nexersysdemo.principlepointdev.com/NexersysBrochureForm/pro.php'],
+        
     hiddenCommInput : "<input type='hidden' name='xnQsjsdp' value='dhOYVrEbdmJthYo*kRl79w$$'><input type='hidden' name='xmIwtLD' value='xxtEl*Hx2ByNU*uyPq3OMHBogz4VdScW'><input type='hidden' name='actionType' value='TGVhZHM='><input type='hidden' name='returnURL' value='http://www.nexersys.com/thank-you'>",
     hiddenHomeInput : "<input type='hidden' name='xnQsjsdp' value='f1LzxolSe-0$'><input type='hidden' name='xmIwtLD' value='82AfV3HJwjp71g4ILMIYL*GCpUdN*P5O'><input type='hidden' name='actionType' value='TGVhZHM='><input type='hidden' name='returnURL' value='http://www.nexersys.com/thank-you'>",
     formNameHome : "WebToLeads452985000001485047",
@@ -100,15 +40,16 @@ $(document).ready(function() {
     },
     checkUrlType : function(){
                        var url = $(location).attr('href');
-                       if($.inArray(url, this.homeUrls) != -1){
+                       if($('.nexersys_landing_form').hasClass('home')){
                            this.urlType = 'home';
-                       }else if($.inArray(url, this.commercialUrls) != -1){
+                       }else if($('.nexersys_landing_form').hasClass('commercial')){
                            this.urlType = 'commercial';
-                       }else if($.inArray(url, this.proUrls) != -1){
+                       }else if($('.nexersys_landing_form').hasClass('pro')){
                            this.urlType = 'pro';
                        }else{
                            this.urlType = 'general';
                        }
+                       console.log(this.urlType)
                    },
     prepareForm : function(crmType){
         //change form names, change insert hidden input fields etc. here before submitting form
@@ -185,7 +126,8 @@ $(document).ready(function() {
 		//console.log(this.urlType);
 		$('#nex_request_form br').remove();
 		var formHTML = $('#nex_request_form').html();
-		formHTML.replace('<p></p>', '');
+                if(formHTML != null){
+                    		formHTML.replace('<p></p>', '');
 		formHTML.replace('<p>', '');
 		formHTML.replace('</p>', '');
 		formHTML.replace('<p/>', '');
@@ -193,6 +135,8 @@ $(document).ready(function() {
 		formHTML.replace('<P/>', '');
 		formHTML.replace('<P></P>', '');
 		formHTML.replace('<P/>', '');
+                }
+
                      if(this.urlType == 'home'){
                          $('.model_type').addClass('hidden');
                          $('[name=LEADCF3]').addClass('hidden').val('home');
@@ -223,10 +167,12 @@ $(document).ready(function() {
 						 $('.company_name').addClass('hidden');
 					     $('.company_name input').removeClass('validate[required]');
                      }
+                 },
+                 attachValidation: function(){
+                     $("#nex_request_form").validationEngine('attach');
                  }
     }
 
-    nexReqForm.checkUrlType();
-    nexReqForm.formatForm();
-	$("#nex_request_form").validationEngine('attach'); //This needs to be here since we're adding form elements after the page has been rendered and initially validated, just re-validating.
+
+	 //This needs to be here since we're adding form elements after the page has been rendered and initially validated, just re-validating.
 });
