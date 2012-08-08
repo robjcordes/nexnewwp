@@ -73,6 +73,10 @@ footer, header, hgroup, menu, nav, section {
 ol, ul {
 	list-style: none;
 }
+#content ol{
+    list-style:decimal;
+    padding-left:20px;
+}
 blockquote, q {
 	quotes: none;
 }
