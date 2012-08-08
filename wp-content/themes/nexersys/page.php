@@ -37,7 +37,9 @@
 	<?php if (is_active_sidebar('posts-sidebar')):?>
 		<aside id="sidebar" class="grid_4">
 			<?php dynamic_sidebar('posts-sidebar'); ?>
-			<?php query_posts('post_type=grid&posts_per_page=1');?>
+			<?php //query_posts('post_type=grid&posts_per_page=1');
+                        query_posts('orderby=rand&post_type=grid&posts_per_page=1');
+                        ?>
 			<?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
 					<blockquote>
