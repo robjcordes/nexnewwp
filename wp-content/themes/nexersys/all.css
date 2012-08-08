@@ -794,6 +794,9 @@ margin:0 0 1px;
 	outline:none;
 }
 .btn-subscribe{
+    display:inline;
+}
+.btn-subscribe input{
 	float:left;
 	border:none;
 	width:92px;
