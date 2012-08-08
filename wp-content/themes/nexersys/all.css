@@ -850,8 +850,7 @@ margin:0 0 1px;
 * +html .w2{
 /*	padding-bottom:expression(document.getElementById("footer").offsetHeight + "px";*/
 	width:100%;
-)
-
+}
 .phone_button p{
 padding-top: 10px;
 padding-bottom: 10px;
@@ -859,11 +858,10 @@ padding-bottom: 10px;
 
 /* Rounds-Gallery */
 /* General styles */
-#rounds-gallery {
-	padding: 2em 0;
-	margin: 0 auto;
+.content #rounds-gallery {
+		margin: 0 auto;
 	width: 600px;
-	font: small Verdana, sans-serif;
+	height:640px;
 }
 
 .content #rounds-gallery h2 {
@@ -907,6 +905,7 @@ display:block;
 	float: left;
 	width: 160px;
 	margin: 0 40px 0 0;
+	height: 316px;
 }
 
 .content #rounds-gallery #main li img {
@@ -928,7 +927,9 @@ display:block;
 
 .content #rounds-gallery #main li p.desc {
 	font-style: italic;
+	font-size:11px;
 }
 .content #rounds-gallery #main li p.headline {
-	font-style: bold;
+	font-weight: bold;
+	font-size: 18px;
 }
