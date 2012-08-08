@@ -2,7 +2,7 @@
 /*
 Template Name: Template Features
 */
-<?php include (TEMPLATEPATH . '/header-feature-tab.php'); ?>
+include (TEMPLATEPATH . '/header-feature-tab.php'); ?>
 
 <div style="width:1009px;overflow: auto;">
 
