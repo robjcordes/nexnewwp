@@ -71,7 +71,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 ol, ul {
-	/*list-style: none;*/
+	list-style: none;
 }
 blockquote, q {
 	quotes: none;
@@ -556,7 +556,9 @@ input[type="image"] {
 }
 .content-box .content .description{overflow:hidden;}
 /* tab box */
-.tab-box{width:100%;}
+.tab-box{width:100%;
+padding-top: 15px;
+padding-bottom: 15px;}
 .tabset{
 	overflow:hidden;
 	font:12px/26px 'Univers', Arial, Helvetica, sans-serif;
@@ -627,8 +629,8 @@ margin:0 0 1px;
 }
 
 .article-block{
-	font-size:0.750em;
-	line-height:10px;
+	font-size:0.950em;
+	line-height:12px;
 	position:relative;
 	overflow:hidden;
 }

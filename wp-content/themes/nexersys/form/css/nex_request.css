@@ -36,7 +36,7 @@
     height:299px;
 }
 #nex_request .left-bottom{
-    background:url('http://www.nexersys.com/wp-content/themes/nexersys/form/img/nex-form-bot-left.png');
+    background:url('http://nexnewwp.principlepointdev.com/wp-content/themes/nexersys/form/img/nex-form-bot-left.png');
     float:left;
     clear:left;
     height:172px;
@@ -44,20 +44,21 @@
 
 #nex_request .right{
     float:left;
-    background:url('http://www.nexersys.com/wp-content/themes/nexersys/form/img/nex-right-box.png');
-    height: 496px;
-    width:554px;
+    background:url('http://nexnewwp.principlepointdev.com/wp-content/themes/nexersys/form/img/nex-right-box.png');
+height: 498px;
+width: 463px;
+margin-top: 2px;
 }
 
 #nex_request .right-209-0320{
     float:left;
-    background:url('http://www.nexersys.com/wp-content/themes/nexersys/form/img/nex-right-box-209-0320.png');
+    background:url('http://nexnewwp.principlepointdev.com/wp-content/themes/nexersys/form/img/nex-right-box-209-0320.png');
     height: 496px;
     width:554px;
 }
 
 #nex_request_form .submit{
-    background: url("http://www.nexersys.com/wp-content/themes/nexersys/form/img/request-but-up.png") repeat scroll 0 0 transparent;
+    background: url("http://nexnewwp.principlepointdev.com/wp-content/themes/nexersys/form/img/request-but-up.png") repeat scroll 0 0 transparent;
     border: medium none;
     height: 59px;
     margin-left: 138px;
@@ -67,7 +68,7 @@
 }
 
 #nex_bottom_button .submit{
-    background: url("http://www.nexersys.com/wp-content/themes/nexersys/form/img/request-but-up.png") repeat scroll 0 0 transparent;
+    background: url("http://nexnewwp.principlepointdev.com/wp-content/themes/nexersys/form/img/request-but-up.png") repeat scroll 0 0 transparent;
     border: medium none;
     height: 59px;
     margin-left: 138px;
@@ -76,7 +77,7 @@
     width: 258px;
 }
 #nex_request_form .down{
-    background:url('http://www.nexersys.com/wp-content/themes/nexersys/form/img/request-but-down.png');
+    background:url('http://nexnewwp.principlepointdev.com/wp-content/themes/nexersys/form/img/request-but-down.png');
 }
 #nex_request .hidden{
     display:none;

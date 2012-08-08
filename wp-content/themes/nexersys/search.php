@@ -2,7 +2,8 @@
 <div class="clear">&nbsp;</div>
 	<!-- content -->
 	<article id="content" class="grid_8">
-		<?php if (is_active_sidebar('carousel-post-sidebar')) dynamic_sidebar('carousel-post-sidebar'); ?>
+		<!-- <?php if (is_active_sidebar('carousel-post-sidebar')) dynamic_sidebar('carousel-post-sidebar'); ?> -->
+		<?php the_post_thumbnail( 'single-post-thumbnail' ); ?>
 		<?php if (have_posts()) : ?>
 			<?php while (have_posts()) : the_post(); ?>
 				<article class="content-box">
