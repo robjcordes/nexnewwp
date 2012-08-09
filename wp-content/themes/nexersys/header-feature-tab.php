@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 $arr = array(		
 	'19" LCD Monitor' => 'The 19" LCD monitor brings you video training, avatar gaming and performance stats to measure your workout success.',
@@ -24,91 +25,61 @@ $arr = array(
 	'High Intensity Interval Training &nbsp;' => 'HIIT style training maximizes cardiovascular benefit and burns calories longer AFTER the workout is over.',
 	'Personalized Feedback' => 'Nexersys provides personalized feedback on performance which will encourage you to keep playing to improve your skills, physical & mental conditioning.',
 	'Gaming' => 'Nexersys utilizes gaming elements & environment to make Fitness Fun.',
-);
-?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php wp_title(''); ?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/feature-tab-assets/css/screen.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/feature-tab-assets/css/reset.css" media="screen" />
-<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery-1.7.min.js"></script>
+);?>
+	<head>
+		<title><?php wp_title(' | ', true, 'right'); ?><?php bloginfo('name'); ?></title>
+		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/all.css"  />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/style.css"  />
+		
+                <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.bt.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.form.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.ui.core.js"></script>
+
+
+
+
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.datePicker.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.ui.tabs.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.skitter.min.js"></script>
+
+
+
+
+
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.animate-colors-min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.mousewheel-3.0.4.pack.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.fancybox-1.3.4.pack.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/common.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.mousewheel-3.0.4.pack.js"></script><script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.fancybox-1.3.4.pack.js"></script>
+<!--<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/common.js"></script>-->
 
-<?php
-    /*
-     *  Add this to support sites with sites with threaded comments enabled.
-     */
-    if ( is_singular() && get_option( 'thread_comments' ) )
-        wp_enqueue_script( 'comment-reply' );
- 
-    wp_head();
- 
-    wp_get_archives('type=monthly&format=link');
-?>
-
-</head>
-<body>
-<div id="wrapper">
-
-    <div id="header">
-<div id="topbar">
-<a href="http://nexersys.com/apply-for-financing"><img src="<?php bloginfo('template_directory');?>/images/financing_button.png" width="229px" height="34px" border="0" style="float: left;"></a>
-<img src="<?php bloginfo('template_directory');?>/images/twitter-icon.png" border="0" width="33px" height="25px" style="float:left;padding-left:10px;margin-top:2px;">
+		<?php if ( is_singular() ) wp_enqueue_script( 'theme-comment-reply', get_bloginfo('template_url')."/js/comment-reply.js" ); ?>
+		
+		<?php wp_enqueue_script('jquery'); wp_head(); ?>
+		<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.js" ></script>
+		
 
 
-<div id="twitter_div"><ul id="twitter_update_list"><li><a href="https://twitter.com/#!/sonnench" target="_blank">chael sonnen</a> 
-I speak for Nexersys. Get off ur couch. Get in shape. Andy wants to fatten u on burgers so he can feel better abt himself. Don't let him win</li></ul></div>
-
-                 <div style="float:right;">
-<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-    <div>
-	<table border="0" cellpadding="0" cellspacing="0" style="margin-top: 4px;margin-right: 4px;">
-	<tr>
-	<td>
-        <input type="text" value="" placeholder="Search Our Site" name="s" id="s" style="margin-right: 10px;" />
-	</td>
-	<td>
-        <input type="image" id="searchsubmit" value="Search" src="<?php bloginfo('template_directory');?>/images/search.png" />
-	</td>
-	</tr>
-	</table>
-    </div>
-</form>
-
-                 </div>
-            </div><!-- END topbar div -->
-
-            <div id="header-main">
-
-<a href="<?php echo get_option('home'); ?>"><img src="<?php bloginfo('template_directory');?>/images/logo-simple.png" width="303px" height="67px" border="0" style="padding: 0px 30px 12px 40px;border:none;"></a>
-<a href="http://store.nexersys.com/Nexersys-iPower-Trainer-p/nxsh-01.htm"  target="_blank"><img src="<?php bloginfo('template_directory');?>/images/buynow.png" border="0" width="109px" height="100px"></a>
-<a href="#" onclick="return SnapABug.startLink();"><img src="<?php bloginfo('template_directory');?>/images/livechat_header.png" border="0" width="243px" height="100px"></a>
-
-<a rel=”nofollow” href="http://www.popsci.com/gadgets/gallery/2011-12/sweat-smarter?image=1" target="_blank"><img src="<?php bloginfo('template_directory');?>/images/featured_header.png" width="268px" height="99px" border="0" style="float:right;"></a>
-
-            </div>
-
-    </div>
-
-<?php
-wp_nav_menu( array( 'theme_location' => 'top-nav' , 'container_class' => 'menu-header' ) );
-?>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div class="w1">
+				<div class="w2">
+					<div class="container_12">
+						<div class="grid_12">
+							<div class="panel-box">
+								<?php if (is_active_sidebar('default-sidebar')) dynamic_sidebar('default-sidebar'); ?>	
+								<?php get_search_form(); ?>
+							</div>
+						</div>
+						<div class="clear">&nbsp;</div>
+						<header id="header">
+							<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+							<?php wp_nav_menu( array('container' => 'nav',
+										 'container_id' =>'nav',
+										 'theme_location' => 'primary',
+										 'menu_class' => '') ); ?>
+						</header>
+					
+		
