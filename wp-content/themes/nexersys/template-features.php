@@ -27,7 +27,7 @@ get_header('feature-tab');?>
 					<li><a class="legend" rel=".callout-07" href="javascript:;" target="_top">3-Axis<br> Accelerometers</a></li>
 					<li><a class="legend" rel=".callout-08" href="javascript:;" target="_top">Commercial Grade<br> Frame</a></li>
 				</ul>
-				<img width="265" height="409" style="margin-left: 14px;" class="floatleft" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-frontview.png">
+				<img width="265" height="409" style="margin-left: 14px;" class="floatleft" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-frontview.png">
 
 				<ul class="labels floatleft">
 					<li><a style="top: 5px;" class="legend" rel=".callout-09" href="javascript:;" target="_top">Custom Computer</a></li>
@@ -36,22 +36,22 @@ get_header('feature-tab');?>
 					<li><a style="top: 5px;" class="legend" rel=".callout-12" href="javascript:;" target="_top">Multi-Axis Pads</a></li>
 					<li><a style="top: 5px;" class="legend" rel=".callout-13" href="javascript:;" target="_top">Vertical Adjustment</a></li>
 				</ul>
-				<img width="283" height="409" style="margin-left: 14px;" class="floatleft" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-sideview.png">
+				<img width="283" height="409" style="margin-left: 14px;" class="floatleft" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-sideview.png">
 
-				<img class="callout-01 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-01.png" style="visibility: hidden;">
-				<img class="callout-02 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-02.png" style="visibility: hidden;">
-				<img class="callout-03 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-03.png" style="visibility: hidden;">
-				<img class="callout-04 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-04.png" style="visibility: hidden;">
-				<img class="callout-05 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-05.png" style="visibility: hidden;">
-				<img class="callout-06 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-06.png">
-				<img class="callout-07 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-07.png">
-				<img class="callout-08 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-08.png">
+				<img class="callout-01 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-01.png" style="visibility: hidden;">
+				<img class="callout-02 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-02.png" style="visibility: hidden;">
+				<img class="callout-03 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-03.png" style="visibility: hidden;">
+				<img class="callout-04 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-04.png" style="visibility: hidden;">
+				<img class="callout-05 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-05.png" style="visibility: hidden;">
+				<img class="callout-06 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-06.png">
+				<img class="callout-07 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-07.png">
+				<img class="callout-08 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-08.png">
 				
-				<img class="callout-09 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-09.png">
-				<img class="callout-10 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-10.png">
-				<img class="callout-11 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-11.png" style="visibility: hidden;">
-				<img class="callout-12 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-12.png">
-				<img class="callout-13 invisible" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-13.png">
+				<img class="callout-09 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-09.png">
+				<img class="callout-10 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-10.png">
+				<img class="callout-11 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-11.png" style="visibility: hidden;">
+				<img class="callout-12 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-12.png">
+				<img class="callout-13 invisible" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/callout-13.png">
 			</div>
 
 			<div id="rollover-copy">
@@ -146,7 +146,7 @@ The Nexersys features make it stand out from all other home fitness systems. Nex
 					<li><a style="top: 5px;" class="legend" rel=".callout-17" href="javascript:;" target="_top">Striking</a></li>
 					<li><a style="top: 5px;" class="legend" rel=".callout-18" href="javascript:;" target="_top">Resistance Training</a></li>
 				</ul>
-				<img width="265" height="409" style="margin-left: 14px;" class="floatleft" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-frontview.png">
+				<img width="265" height="409" style="margin-left: 14px;" class="floatleft" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-frontview.png">
 
 				<ul class="labels floatleft">
 					<li><a style="top: 5px;" class="legend" rel=".callout-19" href="javascript:;" target="_top">Cardio</a></li>
@@ -155,7 +155,7 @@ The Nexersys features make it stand out from all other home fitness systems. Nex
 					<li><a class="legend" rel=".callout-22" href="javascript:;" target="_top">Personalized <br>Feedback</a></li>
 					<li><a style="top: 5px;" class="legend" rel=".callout-23" href="javascript:;" target="_top">Gaming</a></li>
 				</ul>
-				<img width="283" height="409" style="margin-left: 14px;" class="floatleft" src="http://nexersys.com/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-sideview.png">
+				<img width="283" height="409" style="margin-left: 14px;" class="floatleft" src="/wp-content/themes/nexersys/feature-tab-assets/images/nexersys/nexersys-sideview.png">
 			</div>
 
 			<div id="rollover-copy">
@@ -239,7 +239,9 @@ The Nexersys features make it stand out from all other home fitness systems. Nex
 		<!--<div class="tab compare" id="compare"> 
 			<div class="holder"></div>
 		</div>--> 
-	</div><div id="ui-tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide"></div>
+	</div><div id="ui-tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+            <img src="/wp-content/themes/nexersys/feature-tab-assets/images/compare_chart.jpg">
+        </div>
 </div>
 
 <!-- END MAIN COPY -->

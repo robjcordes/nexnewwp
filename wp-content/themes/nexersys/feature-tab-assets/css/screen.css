@@ -38,7 +38,7 @@
 	float: left;
 	height: 40px;
 	line-height: 40px;
-	background: url('/product-features/assets/images/nexersys/tab.png') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/tab.png') no-repeat;
 	padding: 0 40px 0 23px;
 	font-size:22px;
 }
@@ -55,7 +55,7 @@
 }*/ 
 
 .nav-tabs .ui-state-active a {
-	background: url('/product-features/assets/images/nexersys/tab-active.png') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/tab-active.png') no-repeat;
 	color: #333;
 	/*padding: 0 13px 0 41px;*/
 	text-shadow: 0 1px 0 #dedede;
@@ -76,13 +76,13 @@
 
 .tab {
 	width: 822px;
-	background: #fff url('/product-features/assets/images/nexersys/bg-tab.gif') no-repeat;
+	background: #fff url('/wp-content/themes/nexersys/feature-tab-assets/images/bg-tab.gif') no-repeat;
 	padding: 39px 46px 100px 62px;
 	position: relative;
 }
 
 .tab .the-nexersys {
-	background: url('/product-features/assets/images/nexersys/text-nexersys-01.gif') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/text-nexersys-01.gif') no-repeat;
 	width: 197px;
 	height: 20px;
 	display: block;
@@ -92,7 +92,7 @@
 div.tab.features, div.tab.compare {
 	width: 930px;
 	height: 426px;
-	background: url('/product-features/assets/images/nexersys/bg-grid.png') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/bg-grid.png') no-repeat;
 	margin: -5px 0 0;
 	padding: 50px 0 0 20px;
 	position: relative;
@@ -100,7 +100,7 @@ div.tab.features, div.tab.compare {
 
 div.tab.compare {
 	height: 551px;
-	background: url('http://www.nexersys.com/wp-content/uploads/2012/01/compare_chart.jpg') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/compare_chart.jpg') no-repeat;
 	margin-top: 0;
 }
 
@@ -116,13 +116,13 @@ div.tab.features ul.labels li {
 	width: 143px;
 	height: 43px;
 	margin-bottom: 5px;
-	background: url('/product-features/assets/images/nexersys/btn-off.png') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/btn-off.png') no-repeat;
 	z-index: 10;
 }
 
 div.tab.features ul.labels li:hover {
 	cursor: pointer;
-	background: url('/product-features/assets/images/nexersys/btn-on.png') no-repeat;
+	background: url('/wp-content/themes/nexersys/feature-tab-assets/images/btn-on.png') no-repeat;
 	z-index: 10;
 }
 

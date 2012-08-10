@@ -114,6 +114,41 @@ var Site = {
 
 	init: function() {
 		
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 		jQuery(function($) {
 
 			$(".validate").blur(function(){
@@ -148,7 +183,7 @@ var Site = {
 					}
 				});
 			});
-			
+			/*
 			$('input[type=button]').click(function() {
 				var el = $(this);
 				location.href = el.attr('rel');
@@ -308,6 +343,7 @@ var Site = {
 						
 			$(this).find('form .hint').simplehints();
 			$('#contactForm').sendmail();
+                                */
 			$('.tooltip').bt();
 			// $('.lightbox').open_colorbox();
 			$('.select').after('<div class="select_skin"></div>');
@@ -324,13 +360,13 @@ var Site = {
 					$('.callout-default').css('visibility', 'visible');
 				}
 			);
-			
+			/*
 			$(".popup").fancybox({
 				'titlePosition'		: 'inside',
 				'transitionIn'		: 'elastic',
 				'transitionOut'		: 'elastic'
 			});
-			
+			*/
 			function hideFormText() {
 				var _inputs = document.getElementsByTagName('input');
 				var _txt = document.getElementsByTagName('textarea');
@@ -414,5 +450,4 @@ var Site = {
 		});
 	}
 };
-
 Site.init();

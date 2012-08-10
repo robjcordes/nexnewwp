@@ -595,7 +595,7 @@ padding-bottom: 15px;}
 }
 /* tab */
 .tab{
-	overflow:hidden;
+	/*overflow:hidden;*/
 	padding:5px 9px 8px;
 }
 .tab-list .photo{

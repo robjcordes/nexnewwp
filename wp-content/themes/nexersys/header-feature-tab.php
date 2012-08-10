@@ -31,7 +31,8 @@ $arr = array(
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/all.css"  />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/style.css"  />
-		
+                <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/feature-tab-assets/css/screen.css"  />
+		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/feature-tab-assets/css/reset.css"  />
                 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.bt.min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.form.js"></script>
@@ -52,7 +53,7 @@ $arr = array(
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.animate-colors-min.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.mousewheel-3.0.4.pack.js"></script><script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/jquery.fancybox-1.3.4.pack.js"></script>
-<!--<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/common.js"></script>-->
+<script type="text/javascript" src="<?php bloginfo('template_directory');?>/feature-tab-assets/js/common.js"></script>
 
 		<?php if ( is_singular() ) wp_enqueue_script( 'theme-comment-reply', get_bloginfo('template_url')."/js/comment-reply.js" ); ?>
 		
