@@ -1,16 +1,25 @@
 .text-section {
-	background-color: #FFFFFF;
-	background-position: bottom;
-	background-repeat: no-repeat;
-	min-height: 480px;
-	margin: 20px 0 6px;
-	width: 985px;
-	padding-bottom: 20px;
-	height: 700px;
+               
+background-color: white;
+               
+background-position: bottom;
+               
+background-repeat: no-repeat;
+               
+min-height: 480px;
+               
+margin: 20px 0 6px;
+               
+width: 960px;
+               
+padding-bottom: 20px;
+               
+height: 700px;
+
 }
 
 #tabs {
-	padding: 10px 0 0 28px;
+	padding: 10px 0 0 5px;
 }
 
 .ui-tabs-hide {
