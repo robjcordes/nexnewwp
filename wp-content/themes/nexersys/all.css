@@ -535,6 +535,7 @@ input[type="image"] {
 	background:#eee;
 	margin:0 0 20px;
 	padding:15px 11px 22px;
+        min-height: 396px;
 }
 .content-box p{
 	margin:0 0 19px;
