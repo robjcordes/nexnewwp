@@ -23,7 +23,7 @@ $sponsors = array(
 	array('ncis','NCIS: Los Angeles','http://nxs.la/H9YGir'),
 	array('popularscience','Ways to Help You Sweat Smarter','http://nxs.la/A72jNj'),
 	array('mancaves','Dojo Episode Airing Spring 2012','http://nxs.la/H37BEe'),
-	array('fox7austin','Workout with the Nexersys','http://nxs.la/At0er4'),
+	array('fox7austin','Workout with the Nexersys','http://goo.gl/kZY4e'),
 	array('austinfit','Nexersys Delivers a Knockout','http://nxs.la/zbJRRk'),
 //	array('atx_businessjournal','Startup Wants to be the Next Bowflex','http://nxs.la/xDbyaI'),
 	array('keyetv','KEYE TV NEWS - Fred Cantu','http://nxs.la/LRquhM'),

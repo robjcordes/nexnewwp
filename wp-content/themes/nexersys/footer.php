@@ -60,6 +60,10 @@ _gaq.push(["_trackPageview"]);
 </script>
 
 <!-- END Google Analytics -->
+<!-- tracking pixel -->
+				<div class="tracking">
+					<?php the_field('tracking');?>
+				</div>
 
         <?php wp_footer(); ?>
 </body>

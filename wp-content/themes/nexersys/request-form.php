@@ -10,7 +10,7 @@ get_header('form'); ?>
 		<?php if (have_posts()) : ?>
 			<?php while (have_posts()) : the_post(); ?>
 				<article class="content-box">
-					<h3><?php the_title();?></h3>
+					<!-- <h3><?php the_title();?></h3> -->
 					<div class="content">
 						<?php the_content();?>
 					</div>

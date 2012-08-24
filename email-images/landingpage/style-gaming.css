@@ -1,0 +1,113 @@
+/*
+Style Sheet for Landing Pages
+*/
+
+body{
+    font-family: Arial, Helvetica, Georgia, Sans-serif;
+    font-size: 12px;
+    background: #d9d9d9;
+    color: #000000;
+    margin: 0px;
+    background-color: #ffffff;
+    height:100%;
+    min-height:100%;
+    line-height: 18px;
+}
+ 
+#header{
+    width: 1009px;
+    height: 100px;
+}
+
+#header #header-main {
+	height:100px;
+	background-color: #edefef;
+}
+#container{
+	margin: -0px auto 0; 
+	width: 1009px; 
+	text-align: left; 
+	background: #fff; 
+	height:100%; 
+	-moz-box-shadow: 0 0 5px 5px #888; 
+	-webkit-box-shadow: 0 0 5px 5px#888; 
+	box-shadow: 0 0 5px 5px #888;
+}
+
+#main-content {
+	height:100%;
+	width:100%;
+	
+	background-repeat:no-repeat;
+}
+
+#crmWebToEntityForm {
+	height:566px;
+	margin-top: 15px;
+	background-image: url('gaming_lp.jpg');
+}
+
+form.form{
+	float:right;
+	position:relative;
+	top:300px;
+	right: 25px;
+}
+
+form.form input.regular{
+	width:260px;
+	height:20px;
+	background-color:#FFFFFF;
+	border-color: #77776D;
+	font-family:arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+form.form input.zip{
+	width:100px;
+	height:20px;
+	background-color:#FFFFFF;
+	border-color: #77776D;
+}
+
+form #comments{
+	resize: none;
+	width: 263px;
+	height:97px;
+	background-color:#FFFFFF;
+	border-color: #77776D;
+	font-family:arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+form.form input.submit{
+	background: url("submit.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #454545;
+    font-size: 22px;
+    font-style: italic;
+    height: 38px;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 270px;
+}
+
+/** Main Navigation **/
+
+.menu-header {
+	display: block;
+	float: left;
+	margin: 0 auto;
+    height: 54px;
+	width: 100%;
+    background: url('menu-bg.png') repeat-x;
+    z-index: 99999;
+}
+
+#footer {
+	height:40px; 
+	background-image: url('footer-bg.gif');
+}

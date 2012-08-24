@@ -20,7 +20,7 @@ function initGallery() {
 		var p = true;
 		
 		list.carouFredSel({
-			auto: 4000,
+			auto: 8000,
 			scroll: {
 				duration: 650
 			},

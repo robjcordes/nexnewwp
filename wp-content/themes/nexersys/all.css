@@ -535,7 +535,7 @@ input[type="image"] {
 	background:#eee;
 	margin:0 0 20px;
 	padding:15px 11px 22px;
-        min-height: 396px;
+overflow:hidden;
 }
 .content-box p{
 	margin:0 0 19px;
@@ -853,8 +853,8 @@ margin:0 0 1px;
 	width:100%;
 }
 .phone_button p{
-padding-top: 10px;
-padding-bottom: 10px;
+padding-top: 1px;
+padding-bottom: 1px;
 }
 
 /* Rounds-Gallery */
@@ -939,4 +939,8 @@ margin: 0 0 0;
 .content #rounds-gallery #main li p.headline, .tab-list #rounds-gallery #main li p.headline {
 	font-weight: bold;
 	font-size: 18px;
+}
+
+#content .attachment-single-post-thumbnail.wp-post-image {
+padding-bottom:8px;
 }

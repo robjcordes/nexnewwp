@@ -56,6 +56,7 @@
 			<?php wp_reset_query();?>
 		</aside>
 	<?php endif; ?>
+	
 	<div class="clear">&nbsp;</div>
 
 <?php get_footer(); ?>
