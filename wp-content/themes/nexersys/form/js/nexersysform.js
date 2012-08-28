@@ -18,13 +18,14 @@ $(document).ready(function() {
     companyNameInput : "<tr class='company_name'><td class='label'><label for='CompanyName'>Company Name*</label></td><td><input class='nexersys validate[required]' id='CompanyName' type='text' maxlength='255' name='LEADCF24' /></td></tr>",
     showTestAlerts : function(){
         var formValues = 'form name: ' + $('#nex_request_form').attr('name')
-            + '\n URL Type: ' + nexReqForm.urlType
-            + '\n Model Type: ' + nexReqForm.modelType
-            + '\n Country: ' + $('#nex_request form #nex_request_country').val()
-            + '\n Questions: ' + $('#nex_request form #questions').val()
-            + '\n model input name: ' + $('#nex_request form #model_type').attr('name')
-            + '\n country input name: ' + $('#nex_request form #nex_request_country').attr('name')
-            + '\n questions input name: ' + $('#nex_request form #questions').attr('name')
+            //+ '\n URL Type: ' + nexReqForm.urlType
+            //+ '\n Model Type: ' + nexReqForm.modelType
+            //+ '\n Country: ' + $('#nex_request form #nex_request_country').val()
+            //+ '\n Questions: ' + $('#nex_request form #questions').val()
+            //+ '\n model input name: ' + $('#nex_request form #model_type').attr('name')
+            //+ '\n country input name: ' + $('#nex_request form #nex_request_country').attr('name')
+            //+ '\n questions input name: ' + $('#nex_request form #questions').attr('name')
+            //+ '\n hours: ' + $('#nex_request form .hours').val()
         ;
         $('#nex_request form input').each(function(){
             formValues += '\n ' + $(this).val();
@@ -49,9 +50,8 @@ $(document).ready(function() {
         if(crmType == 'zohoHome'){
             $('#nex_request form').attr('name', this.formNameHome);
             $('#nex_request table').prepend(this.hiddenHomeInput);
-            //$('#nex_request table').prepend(this.hiddenHomeCampaignName);
             $('#nex_request #model_type').attr('name', 'LEADCF15');
-			$('#nex_request #CompanyName').attr('name', 'LEADCF29');
+            $('#nex_request #CompanyName').attr('name', 'LEADCF29');
             $('#nex_request #nex_request_country').attr('name', 'LEADCF23');
             $('#nex_request #questions').attr('name', 'LEADCF28');
         }else{
@@ -71,9 +71,41 @@ $(document).ready(function() {
         $('#nex_request_form .submit').click(function(event){
             var country = $('#nex_request form #nex_request_country').val();
             nexReqForm.updateAction(country, nexReqForm.urlType);
+            nexReqForm.formTimestamp();
             //nexReqForm.showTestAlerts();
             //return false;
         });  
+    },
+    formTimestamp: function(){
+        var currentTime = new Date();
+                            var month = currentTime.getMonth() + 1;
+                            var day = currentTime.getDate();
+                            var year = currentTime.getFullYear();
+                            var hours = currentTime.getHours();
+                            
+                            var minutes = currentTime.getMinutes();
+                            if (minutes < 10){
+                                minutes = '0' + minutes;
+                            }
+                            if(month < 10){
+                                month = '0' + month;
+                            }
+                            if(hours < 10){
+                                hours = '0' + hours;
+                            }
+                            if(hours > 12){
+                                hours = hours - 12;
+                                var ampm = 'PM';
+                            }else{
+                                ampm = 'AM';
+                            }
+                            var dateString = month + '/' + day + '/' + year;
+                            $('.datestr').val(dateString);
+                            $('.hours').val(hours);
+                            $('.minutes').val(minutes);
+                            $('.ampm').val(ampm);
+                            
+                            
     },
     updateAction : function(country, urlType){
                        this.modelType = $('#nex_request #model_type').val();
@@ -97,35 +129,7 @@ $(document).ready(function() {
                            //zohoCommercial
                                this.prepareForm('zohoComm');
                        }
-                            var currentTime = new Date();
-                            var month = currentTime.getMonth() + 1;
-                            var day = currentTime.getDate();
-                            var year = currentTime.getFullYear();
-                            var hours = currentTime.getHours();
                             
-                            var minutes = currentTime.getMinutes();
-                            if (minutes < 10){
-                                minutes = '0' + minutes;
-                            }
-                            if(month < 10){
-                                month = '0' + month;
-                            }
-                            if(hours < 10){
-                                hours = '0' + hours;
-                            }
-                            if(hours > 12){
-                                hours = hours - 12;
-                                var ampm = 'PM';
-                            }else{
-                                hours = 'AM';
-                            }
-                            //console.log(' hours: ' + hours + ' minutes ');
-                            var dateString = month + '/' + day + '/' + year;
-                            //console.log('hours: ' + hours);
-                            $('.datestr').val(dateString);
-                            $('.hours').val(hours);
-                            $('.minutes').val(minutes);
-                            $('.ampm').val(ampm);
                    },
     formatForm : function(){
 		//console.log(this.urlType);
