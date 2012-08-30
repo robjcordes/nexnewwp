@@ -1,7 +1,7 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
     $(".campaign_title").hide();
-    $(".content-box").css({"overflow":"visible"});
+    //$(".content-box").css({"overflow":"visible"});
     $(".nexersys_landing_form").load('/wp-content/themes/nexersys/form/nexersysform.html', function(){
         nexReqForm.checkUrlType();
         nexReqForm.formatForm();
