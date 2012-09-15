@@ -4,12 +4,13 @@
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/all.css"  />
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_url'); ?>/style.css"  />
-		
+
 		<?php if ( is_singular() ) wp_enqueue_script( 'theme-comment-reply', get_bloginfo('template_url')."/js/comment-reply.js" ); ?>
-		
-		<?php wp_enqueue_script('jquery'); wp_head(); ?>		
+
+		<?php wp_enqueue_script('jquery'); wp_head(); ?>
 
 		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery-1.7.2.min.js"></script>
+                <script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery.livequery.js"></script>
 		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/nexersysform.js"></script>
 		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery.validationEngine.js"></script>
 		<script type="text/javascript" src="<?php echo get_option('siteurl'); ?>/wp-content/themes/nexersys/form/js/jquery.validationEngine-en.js"></script>
@@ -26,7 +27,7 @@
 					<div class="container_12">
 						<div class="grid_12">
 							<div class="panel-box">
-								<?php if (is_active_sidebar('default-sidebar')) dynamic_sidebar('default-sidebar'); ?>	
+								<?php if (is_active_sidebar('default-sidebar')) dynamic_sidebar('default-sidebar'); ?>
 								<?php get_search_form(); ?>
 							</div>
 						</div>
@@ -38,5 +39,5 @@
 										 'theme_location' => 'primary',
 										 'menu_class' => '') ); ?>
 						</header>
-					
-		
+
+
