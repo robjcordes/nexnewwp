@@ -151,11 +151,9 @@ $(document).ready(function() {
                          $('[name=LEADCF3]').addClass('hidden').val('home');
                          $('#nex_request .left-top img').attr('src', '/wp-content/themes/nexersys/form/img/nex-bro-home.png');
                      }else if(this.urlType == 'commercial'){
-						$('#nex_request_form textarea').css({'height':'45px'});
-						
-						$(this.companyNameInput).insertAfter('#nex_request table tr:eq(2)');
-						//if($(location).attr('href') == 'http://nexersys.com/commercial-test/'){
-								if($.browser.msie && $.browser.version == 7.0){
+                         $('#nex_request_form textarea').css({'height':'45px'});
+			 $(this.companyNameInput).insertAfter('#nex_request table tr:eq(2)');
+			 if($.browser.msie && $.browser.version == 7.0){
 									//console.log('ie 7');
 									$('#nex_request_form .submit').css({'margin-top':'-45px'});
 								}else if($.browser.msie && $.browser.version == 8.0){
@@ -163,7 +161,6 @@ $(document).ready(function() {
 								}else{
 									//console.log('not ie');
 								}
-						//}
                          $('.model_type').addClass('hidden');
                          $('[name=LEADCF3]').addClass('hidden').val('commercial');
                          $('#nex_request .left-top img').attr('src', '/wp-content/themes/nexersys/form/img/nex-bro-comm.png');
@@ -172,9 +169,21 @@ $(document).ready(function() {
                          $('[name=LEADCF3]').addClass('hidden').val('pro');
                          $('#nex_request .left-top img').attr('src', '/wp-content/themes/nexersys/form/img/nex-bro-pro.png');
                      }else{
+                         $(nexReqForm.companyNameInput).insertAfter('#nex_request table tr:eq(2)');
+                         $('.company_name').hide();
+                         $('#model_type').livequery('change', function(event) { 
+                             var modelTypeSelected = $('#model_type').val();
+                             if(modelTypeSelected == 'commercial'){
+                                 $('.company_name').show();
+                                 console.log('selected com');
+                             }else{
+                                 $('.company_name').hide();
+                             }
+                            return false; 
+                         });
                          $('#nex_request .left-top img').attr('src', '/wp-content/themes/nexersys/form/img/nex-bro-home.png');
-						 $('.company_name').addClass('hidden');
-					     $('.company_name input').removeClass('validate[required]');
+			 //$('.company_name').addClass('hidden');
+			 $('.company_name input').removeClass('validate[required]');
                      }
                  },
                  attachValidation: function(){
