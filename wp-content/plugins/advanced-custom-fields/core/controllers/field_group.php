@@ -146,8 +146,32 @@ class acf_field_group
 		
 		// add metaboxes
 		add_meta_box('acf_fields', __("Fields",'acf'), array($this, 'meta_box_fields'), 'acf', 'normal', 'high');
-		add_meta_box('acf_location', __("Location",'acf') . ' </span><span class="description">- ' . __("Add Fields to Edit Screens",'acf'), array($this, 'meta_box_location'), 'acf', 'normal', 'high');
-		add_meta_box('acf_options', __("Options",'acf') . '</span><span class="description">- ' . __("Customise the edit page",'acf'), array($this, 'meta_box_options'), 'acf', 'normal', 'high');
+		add_meta_box('acf_location', __("Location",'acf'), array($this, 'meta_box_location'), 'acf', 'normal', 'high');
+		add_meta_box('acf_options', __("Options",'acf'), array($this, 'meta_box_options'), 'acf', 'normal', 'high');
+		
+		
+		// add screen settings
+		add_filter('screen_settings', array($this, 'screen_settings'), 10, 1);
+	}
+	
+	
+	/*
+	*  screen_settings
+	*
+	*  @description: 
+	*  @created: 4/09/12
+	*/
+	
+	function screen_settings( $current )
+	{
+	    $current .= '<h5>' . __("Fields",'acf') . '</h5>';
+	    
+	    $current .= '<div class="show-field_key">Show Field Key:';
+	    	 $current .= '<label class="show-field_key-no"><input checked="checked" type="radio" value="0" name="show-field_key" /> No</label>';
+	    	 $current .= '<label class="show-field_key-yes"><input type="radio" value="1" name="show-field_key" /> Yes</label>';
+		$current .= '</div>';
+	    
+	    return $current;
 	}
 	
 	
@@ -290,31 +314,32 @@ class acf_field_group
 					'post_type' => 'page',
 					'sort_column' => 'menu_order',
 					'order' => 'ASC',
-					'post_status' => array('publish', 'private', 'draft'),
+					'post_status' => array('publish', 'private', 'draft', 'inherit', 'future'),
 					'suppress_filters' => false,
 				));
 
 				foreach($pages as $page)
 				{
-					$value = '';
+					$title = '';
 					$ancestors = get_ancestors($page->ID, 'page');
 					if($ancestors)
 					{
 						foreach($ancestors as $a)
 						{
-							$value .= '- ';
+							$title .= '- ';
 						}
 					}
-					$value .= get_the_title($page->ID);
+					
+					$title .= apply_filters( 'the_title', $page->post_title, $page->ID );
 					
 					
 					// status
-					if($page->post_status == "private" || $page->post_status == "draft")
+					if($page->post_status != "publish")
 					{
-						$value .= " ($page->post_status)";
+						$title .= " ($page->post_status)";
 					}
 					
-					$choices[$page->ID] = $value;
+					$choices[$page->ID] = $title;
 					
 				}
 				
@@ -346,10 +371,23 @@ class acf_field_group
 			
 			case "post" :
 				
-				$posts = get_posts( array('numberposts' => '-1' ));
-				foreach($posts as $v)
+				$posts = get_posts(array(
+					'numberposts' => '-1',
+					'post_status' => array('publish', 'private', 'draft', 'inherit', 'future'),
+					'suppress_filters' => false,
+				));
+				
+				foreach($posts as $post)
 				{
-					$choices[$v->ID] = $v->post_title;
+					$title = apply_filters( 'the_title', $post->post_title, $post->ID );
+					
+					// status
+					if($post->post_status != "publish")
+					{
+						$title .= " ($post->post_status)";
+					}
+					
+					$choices[$post->ID] = $title;
 				}
 				
 				break;

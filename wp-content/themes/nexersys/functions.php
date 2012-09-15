@@ -93,6 +93,14 @@ if ( function_exists('register_sidebar') ) {
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));
+		register_sidebar(array(
+		'id' => 'posts-sidebar-comm',
+		'name' => 'Posts Sidebar Commercial',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	));
 }
 
 if ( function_exists( 'add_theme_support' ) ) {

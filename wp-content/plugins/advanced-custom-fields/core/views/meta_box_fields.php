@@ -23,7 +23,7 @@ $fields = $this->parent->get_acf_fields( $post->ID );
 // add clone
 $fields[999] = array(
 	'label'		=>	__("New Field",'acf'),
-	'name'		=>	'new_field',
+	'name'		=>	__("new_field",'acf'),
 	'type'		=>	'text',
 	'order_no'	=>	'1',
 	'instructions'	=>	'',
@@ -61,6 +61,7 @@ foreach( $this->parent->fields as $field )
 				<th class="field_label"><?php _e('Field Label','acf'); ?></th>
 				<th class="field_name"><?php _e('Field Name','acf'); ?></th>
 				<th class="field_type"><?php _e('Field Type','acf'); ?></th>
+				<th class="field_key"><?php _e('Field Key','acf'); ?></th>
 			</tr>
 		</thead>
 	</table>
@@ -92,6 +93,7 @@ foreach( $this->parent->fields as $field )
 					</td>
 					<td class="field_name"><?php echo $field['name']; ?></td>
 					<td class="field_type"><?php echo $fields_names[$field['type']]; ?></td>
+					<td class="field_key"><?php echo $field['key']; ?></td>
 				</tr>
 			</table>
 		</div>
@@ -167,8 +169,8 @@ foreach( $this->parent->fields as $field )
 									'name'	=>	'fields['.$key.'][required]',
 									'value'	=>	$field['required'],
 									'choices'	=>	array(
-										'1'	=>	'Yes',
-										'0'	=>	'No',
+										'1'	=>	__("Yes",'acf'),
+										'0'	=>	__("No",'acf'),
 									),
 									'layout'	=>	'horizontal',
 								));

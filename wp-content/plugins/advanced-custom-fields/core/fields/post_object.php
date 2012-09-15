@@ -116,14 +116,18 @@ class acf_Post_object extends acf_Field
 			
 			
 			// set order
-			if( is_post_type_hierarchical($post_type) )
+			if( is_post_type_hierarchical($post_type) && !isset($args['tax_query']) )
 			{
-				$args['orderby'] = 'menu_order';
+				$args['sort_column'] = 'menu_order, post_title';
+				$args['sort_order'] = 'ASC';
+
+				$posts = get_pages( $args );
+			}
+			else
+			{
+				$posts = get_posts( $args );
 			}
 			
-			
-			// get posts
-			$posts = get_posts( $args );
 			
 			if($posts)
 			{
@@ -147,11 +151,16 @@ class acf_Post_object extends acf_Field
 					
 					
 					// status
-					if($post->post_status == "private" || $post->post_status == "draft")
+					if($post->post_status != "publish")
 					{
 						$title .= " ($post->post_status)";
 					}
 					
+					// WPML
+					if( defined('ICL_LANGUAGE_CODE') )
+					{
+						$title .= ' (' . ICL_LANGUAGE_CODE . ')';
+					}
 					
 					// add to choices
 					if( count($field['post_type']) == 1 )

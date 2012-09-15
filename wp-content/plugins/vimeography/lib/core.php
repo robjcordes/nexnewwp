@@ -16,6 +16,7 @@ class Vimeography_Core extends Vimeography
 	protected $_limit;
 	protected $_featured;
 	protected $_gallery_id;
+	protected $_width;
 	
 	protected $_debug = FALSE;
 		
@@ -43,6 +44,7 @@ class Vimeography_Core extends Vimeography
 		$this->_source     = $settings['source'];
 		$this->_limit      = $settings['limit'];
 		$this->_gallery_id = $settings['id'];
+		$this->_width      = $settings['width'];
 	}
 	
 	/**
@@ -73,7 +75,9 @@ class Vimeography_Core extends Vimeography
 		$urls[] = $this->_build_url($this->_source);
 		
 		if (!empty($this->_featured))
-			$urls[] = self::ENDPOINT.'video/'.$this->_featured.self::FORMAT;
+		{
+			$urls[] = $this->_build_url($this->_featured);
+		}
 		
 		$result = array();
 		$videos = '';
@@ -289,8 +293,9 @@ class Vimeography_Core extends Vimeography
 				$featured = $data[0];
 			}
 									
-			$mustache->featured = $featured;
-			$mustache->gallery_id = $this->_gallery_id;
+			$mustache->featured      = $featured;
+			$mustache->gallery_id    = $this->_gallery_id;
+			$mustache->gallery_width = $this->_width;
 							
 			return $mustache->render($theme);
 		}

@@ -131,19 +131,22 @@ var acf = {
 			var validation = true;
 
 			// text / textarea
-			if($(this).find('input[type="text"], input[type="hidden"], textarea').val() == "")
+			if($(this).find('input[type="text"], input[type="number"], input[type="hidden"], textarea').val() == "")
 			{
 				validation = false;
 			}
 			
+			
 			// select
 			if($(this).find('select').exists())
 			{
+				validation = true;
 				if($(this).find('select').val() == "null" || !$(this).find('select').val())
 				{
 					validation = false;
 				}
 			}
+
 			
 			// checkbox
 			if($(this).find('input[type="checkbox"]:checked').exists())
@@ -250,8 +253,6 @@ var acf = {
 	*  @description: 
 	*  @created: 1/03/2011
 	*/
-	
-	var farbtastic;
 			
 	$(document).ready(function(){
 	
@@ -263,7 +264,7 @@ var acf = {
 		
 		$('body').append('<div id="acf_color_picker" />');
 		
-		farbtastic = $.farbtastic('#acf_color_picker');
+		acf.farbtastic = $.farbtastic('#acf_color_picker');
 		
 	});
 	
@@ -271,20 +272,36 @@ var acf = {
 	// update colors
 	$(document).live('acf/setup_fields', function(e, postbox){
 		
-		$(postbox).find('input.acf_color_picker').each(function(i){
+		$(postbox).find('input.acf_color_picker').each(function(){
+			
+			// vars
+			var input = $(this);
+			
 			
 			// validate
-			if( ! $.farbtastic)
+			if( ! $.farbtastic )
 			{
 				return;
 			}
 			
 			
-			$.farbtastic( $(this) ).setColor( $(this).val() ).hsl[2] > 0.5 ? color = '#000' : color = '#fff';
-			$(this).css({ 
-				backgroundColor : $(this).val(),
-				color : color
-			});
+			// is clone field?
+			if( acf.is_clone_field(input) )
+			{
+				//console.log('Clone Field: Color Picker');
+				return;
+			}
+			
+
+			if( input.val() )
+			{
+				$.farbtastic( input ).setColor( input.val() ).hsl[2] > 0.5 ? color = '#000' : color = '#fff';
+				
+				input.css({ 
+					backgroundColor : input.val(),
+					color : color
+				});
+			}
 			
 		});
 		
@@ -295,16 +312,35 @@ var acf = {
 		
 		var input = $(this);
 		
+		if( ! input.val() )
+		{
+			input.val( '#FFFFFF' );
+		}
+		
 		$('#acf_color_picker').css({
 			left: input.offset().left,
 			top: input.offset().top - $('#acf_color_picker').height(),
 			display: 'block'
 		});
 		
-		farbtastic.linkTo(this);
+		acf.farbtastic.linkTo(this);
 		
 	}).live('blur', function(){
-
+		
+		var input = $(this);
+		
+		
+		// reset the css
+		if( ! input.val() )
+		{
+			input.css({ 
+				backgroundColor : '#fff',
+				color : '#000'
+			});
+			
+		}
+		
+		
 		$('#acf_color_picker').css({
 			display: 'none'
 		});
@@ -439,7 +475,15 @@ var acf = {
 		
 		$(postbox).find('.acf_relationship').each(function(){
 			
-			$(this).find('.relationship_right .relationship_list').unbind('sortable').sortable({
+			// is clone field?
+			if( acf.is_clone_field($(this).children('input[type="hidden"]')) )
+			{
+				//console.log('Clone Field: Relationship');
+				return;
+			}
+			
+			
+			$(this).find('.relationship_right .relationship_list').sortable({
 				axis: "y", // limit the dragging to up/down only
 				items: '> li',
 				forceHelperSize: true,
@@ -449,7 +493,7 @@ var acf = {
 			
 			
 			// load more
-			$(this).find('.relationship_left .relationship_list').scrollTop(0).unbind('scroll').scroll( function(){
+			$(this).find('.relationship_left .relationship_list').scrollTop(0).scroll( function(){
 				
 				// vars
 				var div = $(this).closest('.acf_relationship');
@@ -488,7 +532,7 @@ var acf = {
 		
 		// vars
 		var id = $(this).attr('data-post_id'),
-			title = $(this).text(),
+			title = $(this).html(),
 			div = $(this).closest('.acf_relationship'),
 			max = parseInt(div.attr('data-max')),
 			right = div.find('.relationship_right .relationship_list');
@@ -626,6 +670,7 @@ var acf = {
 			paged = parseInt( div.attr('data-paged') ),
 			taxonomy = div.attr('data-taxonomy'),
 			post_type = div.attr('data-post_type'),
+			lang = div.attr('data-lang'),
 			left = div.find('.relationship_left .relationship_list'),
 			right = div.find('.relationship_right .relationship_list');
 		
@@ -640,25 +685,25 @@ var acf = {
 				's' : s,
 				'paged' : paged,
 				'taxonomy' : taxonomy,
-				'post_type' : post_type
+				'post_type' : post_type,
+				'lang' : lang
 			},
 			success: function( html ){
 				
 				div.removeClass('no-results').removeClass('loading');
 				
-				// no results?
-				if( !html )
-				{
-					div.addClass('no-results');
-					left.find('li:not(.load-more)').remove();
-					return;
-				}
-				
-				
 				// new search?
 				if( paged == 1 )
 				{
 					left.find('li:not(.load-more)').remove();
+				}
+				
+				
+				// no results?
+				if( !html )
+				{
+					div.addClass('no-results');
+					return;
 				}
 				
 				
@@ -711,31 +756,40 @@ var acf = {
 		// add tinymce to all wysiwyg fields
 		$(this).find('.acf_wysiwyg textarea').each(function(){
 			
-			
-			if(tinyMCE != undefined && tinyMCE.settings != undefined)
+			// is clone field?
+			if( acf.is_clone_field($(this)) )
 			{
-
-				// reset buttons
-				tinyMCE.settings.theme_advanced_buttons1 = acf_wysiwyg_buttons.theme_advanced_buttons1;
-				tinyMCE.settings.theme_advanced_buttons2 = acf_wysiwyg_buttons.theme_advanced_buttons2;
-			
-				var toolbar = $(this).closest('.acf_wysiwyg').attr('data-toolbar');
-				
-				if(toolbar == 'basic')
-				{
-					//'bold', 'italic', 'underline', 'blockquote', 'separator', 'strikethrough', 'bullist', 'numlist', 'justifyleft', 'justifycenter', 'justifyright', 'undo', 'redo', 'link', 'unlink', 'fullscreen'
-					tinyMCE.settings.theme_advanced_buttons1 = "bold, italic, underline, blockquote, |, strikethrough, bullist, numlist, justifyleft, justifycenter, justifyright, undo, redo, link, unlink, fullscreen";
-					tinyMCE.settings.theme_advanced_buttons2 = "";
-				}
-				else
-				{
-					// add images + code buttons
-					tinyMCE.settings.theme_advanced_buttons2 += ",code";
-				}
-				
-				
+				//console.log('Clone Field: WYSIWYG');
+				return;
 			}
 			
+			
+			// validate tinymce
+			if( tinyMCE == undefined || tinyMCE.settings == undefined )
+			{
+				return;
+			}
+			
+			
+			// reset buttons
+			tinyMCE.settings.theme_advanced_buttons1 = acf_wysiwyg_buttons.theme_advanced_buttons1;
+			tinyMCE.settings.theme_advanced_buttons2 = acf_wysiwyg_buttons.theme_advanced_buttons2;
+		
+			var toolbar = $(this).closest('.acf_wysiwyg').attr('data-toolbar');
+			
+			if(toolbar == 'basic')
+			{
+				tinyMCE.settings.theme_advanced_buttons1 = "bold, italic, underline, blockquote, |, strikethrough, bullist, numlist, justifyleft, justifycenter, justifyright, undo, redo, link, unlink, fullscreen";
+				tinyMCE.settings.theme_advanced_buttons2 = "";
+			}
+			else
+			{
+				// add images + code buttons
+				tinyMCE.settings.theme_advanced_buttons2 += ",code";
+			}
+
+			
+			// activate editor
 			wpActiveEditor = null;
 			tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
 
@@ -871,8 +925,6 @@ var acf = {
 			// move row-clone to be the first element (to avoid double border css bug)
 			var row_clone = repeater.find('> table > tbody > tr.row-clone');
 			
-			// also, deactivate any wysiwyg in the row clone
-			row_clone.acf_deactivate_wysiwyg();
 			if( row_clone.index() != 0 )
 			{
 				row_clone.closest('tbody').prepend( row_clone );
@@ -942,7 +994,7 @@ var acf = {
 	
 		// create and add the new field
 		var new_id = uniqid(),
-			new_field_html = repeater.find('> table > tbody > tr.row-clone').html().replace(/(="[\w-\[\]]*?)(\[999\])/g, '$1[' + new_id + ']'),
+			new_field_html = repeater.find('> table > tbody > tr.row-clone').html().replace(/(=["]*[\w-\[\]]*?)(\[999\])/g, '$1[' + new_id + ']'),
 			new_field = $('<tr class="row"></tr>').append( new_field_html );
 		
 		
@@ -1168,7 +1220,7 @@ var acf = {
 		
 		// create new field
 		var new_id = uniqid(),
-			new_field_html = div.find('> .clones > .layout[data-layout="' + layout + '"]').html().replace(/(="[\w-\[\]]*?)(\[999\])/g, '$1[' + new_id + ']'),
+			new_field_html = div.find('> .clones > .layout[data-layout="' + layout + '"]').html().replace(/(=["]*[\w-\[\]]*?)(\[999\])/g, '$1[' + new_id + ']'),
 			new_field = $('<div class="layout" data-layout="' + layout + '"></div>').append( new_field_html );
 			
 			
@@ -1197,15 +1249,30 @@ var acf = {
 		$(postbox).find('.acf_flexible_content').each(function(){
 			
 			var div =  $(this);
-			
-			// deactivate any wysiwygs
-			div.children('.clones').acf_deactivate_wysiwyg();
-			
+
 			// sortable
 			flexible_content_add_sortable( div );
 		});
 		
 	});
+	
+	
+	/*
+	*  is_clone_field
+	*
+	*  @description: returns true|false for an input element
+	*  @created: 19/08/12
+	*/
+	
+	acf.is_clone_field = function( input )
+	{
+		if( input.attr('name') && input.attr('name').indexOf('[999]') != -1 )
+		{
+			return true;
+		}
+		
+		return false;
+	}
 	
 	
 	/*
@@ -1215,25 +1282,42 @@ var acf = {
 	*  @created: 4/03/2011
 	*/
 	
-	$('input.acf_datepicker').live('focus', function(){
-
-		var input = $(this);
+	$(document).live('acf/setup_fields', function(e, postbox){
 		
-		if(!input.hasClass('active'))
-		{
+		$(postbox).find('input.acf_datepicker').each(function(){
 			
 			// vars
-			var format = input.attr('data-date_format') ? input.attr('data-date_format') : 'dd/mm/yy';
+			var input = $(this),
+				alt_field = input.siblings('.acf-hidden-datepicker');
+				save_format = input.attr('data-save_format'),
+				display_format = input.attr('data-display_format');
+			
+			
+			// is clone field?
+			if( acf.is_clone_field(alt_field) )
+			{
+				return;
+			}
+			
+			
+			// get and set value from alt field
+			input.val( alt_field.val() );
+			
 			
 			// add date picker and refocus
 			input.addClass('active').datepicker({ 
-				dateFormat: format 
-			})
+				dateFormat : save_format,
+				altField : alt_field,
+				altFormat :  save_format,
+				changeYear: true,
+				changeMonth: true,
+				showButtonPanel : true
+			});
 			
-			// set a timeout to re focus the input (after it has the datepicker!)
-			setTimeout(function(){
-				input.trigger('blur').trigger('focus');
-			}, 1);
+			
+			// now change the format back to how it should be.
+			input.datepicker( "option", "dateFormat", display_format );
+			
 			
 			// wrap the datepicker (only if it hasn't already been wrapped)
 			if($('body > #ui-datepicker-div').length > 0)
@@ -1241,7 +1325,18 @@ var acf = {
 				$('#ui-datepicker-div').wrap('<div class="ui-acf" />');
 			}
 			
-		}
+			
+			// allow null
+			input.blur(function(){
+				
+				if( !input.val() )
+				{
+					alt_field.val('');
+				}
+				
+			});
+			
+		});
 		
 	});
 	
@@ -1403,6 +1498,14 @@ var acf = {
 		
 		$(postbox).find('.acf-gallery').each(function(i){
 			
+			// is clone field?
+			if( acf.is_clone_field($(this).children('input[type="hidden"]')) )
+			{
+				//console.log('Clone Field: Gallery');
+				return;
+			}
+			
+			
 			// vars
 			var div = $(this),
 				thumbnails = div.find('.thumbnails');
@@ -1413,7 +1516,7 @@ var acf = {
 
 			
 			// sortable
-			thumbnails.find('> .inner').unbind('sortable').sortable({
+			thumbnails.find('> .inner').sortable({
 				items : '> .thumbnail',
 				/* handle: '> td.order', */
 				forceHelperSize: true,
