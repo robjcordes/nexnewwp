@@ -1,5 +1,6 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
+    console.log('local');
     $(".campaign_title").hide();
     //$(".content-box").css({"overflow":"visible"});
     $(".nexersys_landing_form").load('/wp-content/themes/nexersys/form/nexersysform.html', function(){
@@ -169,7 +170,7 @@ $(document).ready(function() {
                          $('[name=LEADCF3]').addClass('hidden').val('pro');
                          $('#nex_request .left-top img').attr('src', '/wp-content/themes/nexersys/form/img/nex-bro-pro.png');
                      }else{
-                         $(nexReqForm.companyNameInput).insertAfter('#nex_request table tr:eq(2)');
+                         $(nexReqForm.companyNameInput).insertAfter('#nex_request table tr:eq(4)');
                          $('.company_name').hide();
                          $('#model_type').livequery('change', function(event) { 
                              var modelTypeSelected = $('#model_type').val();
