@@ -1,6 +1,6 @@
 var $ = jQuery.noConflict();
 $(document).ready(function() {
-    console.log('local');
+
     $(".campaign_title").hide();
     //$(".content-box").css({"overflow":"visible"});
     $(".nexersys_landing_form").load('/wp-content/themes/nexersys/form/nexersysform.html', function(){
@@ -44,7 +44,6 @@ $(document).ready(function() {
                        }else{
                            this.urlType = 'general';
                        }
-                       console.log(this.urlType)
                    },
     prepareForm : function(crmType){
         //change form names, change insert hidden input fields etc. here before submitting form
@@ -176,7 +175,7 @@ $(document).ready(function() {
                              var modelTypeSelected = $('#model_type').val();
                              if(modelTypeSelected == 'commercial'){
                                  $('.company_name').show();
-                                 console.log('selected com');
+                                 //console.log('selected com');
                              }else{
                                  $('.company_name').hide();
                              }
