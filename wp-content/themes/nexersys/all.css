@@ -584,6 +584,9 @@ padding-bottom: 15px;}
 	background:url(images/sprite.png) no-repeat 100% -149px;
 	position:relative;
 	outline:none;
+        border-left: #ACABAB;
+        border-left-width: 2px;
+        border-left-style: solid;
 }
 .tabset a.active,
 .tabset a:hover{background-position:100% -177px;}
