@@ -522,3 +522,16 @@ if (window.addEventListener)
 	window.addEventListener("load", initPage, false);
 else if (window.attachEvent)
 	window.attachEvent("onload", initPage)
+    
+var $ = jQuery.noConflict();
+$(document).ready(function(){
+    
+    $('h4.collapse').click(function(){
+        if($(this).next().hasClass('collapse-text')){
+                    $(this).next().toggle('fast');
+
+        }
+        
+    });
+    
+});

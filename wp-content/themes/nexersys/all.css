@@ -944,3 +944,9 @@ margin: 0 0 0;
 #content .attachment-single-post-thumbnail.wp-post-image {
 padding-bottom:8px;
 }
+.collapse-text{
+    display:none;
+}
+h4.collapse{
+    cursor:pointer;
+}
